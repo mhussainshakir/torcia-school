@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { AuthButton } from "@/components/auth/auth-button";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, BookOpen, MessageSquare, Users, Shield } from "lucide-react";
 
