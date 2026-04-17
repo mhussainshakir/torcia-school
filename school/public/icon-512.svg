@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="flameGradient512" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="50%" style="stop-color:#F7C948"/>
+      <stop offset="100%" style="stop-color:#FF6B35"/>
+    </linearGradient>
+    <filter id="glow512">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="230" fill="#1E3A5F"/>
+  
+  <!-- Torch/Flame Icon -->
+  <g filter="url(#glow512)">
+    <!-- Flame -->
+    <path d="M256 64 C186 64 148 150 148 212 C148 268 182 300 214 332 L214 400 L298 400 L298 332 C330 300 364 268 364 212 C364 150 326 64 256 64 Z" fill="url(#flameGradient512)">
+      <animate attributeName="d" dur="2s" repeatCount="indefinite" values="
+        M256 64 C186 64 148 150 148 212 C148 268 182 300 214 332 L214 400 L298 400 L298 332 C330 300 364 268 364 212 C364 150 326 64 256 64 Z;
+        M256 54 C178 74 136 160 136 218 C136 278 176 304 208 336 L208 400 L304 400 L304 336 C336 304 376 278 376 218 C376 160 334 74 256 54 Z;
+        M256 64 C186 64 148 150 148 212 C148 268 182 300 214 332 L214 400 L298 400 L298 332 C330 300 364 268 364 212 C364 150 326 64 256 64 Z
+      "/>
+    </path>
+    
+    <!-- Inner Flame -->
+    <path d="M256 128 C218 128 196 180 196 224 C196 256 218 276 238 296 L238 360 L274 360 L274 296 C294 276 316 256 316 224 C316 180 294 128 256 128 Z" fill="#FFF5E1" opacity="0.8">
+      <animate attributeName="d" dur="1.5s" repeatCount="indefinite" values="
+        M256 128 C218 128 196 180 196 224 C196 256 218 276 238 296 L238 360 L274 360 L274 296 C294 276 316 256 316 224 C316 180 294 128 256 128 Z;
+        M256 116 C212 132 188 186 188 228 C188 266 212 282 232 302 L232 360 L280 360 L280 302 C300 282 324 266 324 228 C324 186 300 132 256 116 Z;
+        M256 128 C218 128 196 180 196 224 C196 256 218 276 238 296 L238 360 L274 360 L274 296 C294 276 316 256 316 224 C316 180 294 128 256 128 Z
+      "/>
+    </path>
+  </g>
+  
+  <!-- Book/Academic Symbol at bottom -->
+  <path d="M190 420 L190 448 L322 448 L322 420" fill="none" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  <line x1="256" y1="420" x2="256" y2="448" stroke="white" stroke-width="10" stroke-linecap="round"/>
+</svg>
