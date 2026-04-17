@@ -9,7 +9,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/firebase';
+import { auth } from '@/lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 
@@ -29,7 +29,6 @@ export function GoogleSignInButton({
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const { auth } = createClient();
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
@@ -135,7 +134,6 @@ export function EmailSignInButton({
   isLoading?: boolean;
 }) {
   const router = useRouter();
-  const { auth } = createClient();
 
   const handleEmailSignIn = async () => {
     try {
@@ -180,7 +178,6 @@ export function EmailSignInButton({
 export function SignOutButton() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const { auth } = createClient();
 
   const handleSignOut = async () => {
     setIsLoading(true);
