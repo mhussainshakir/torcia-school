@@ -41,10 +41,7 @@ export function GoogleSignInButton({
       provider.addScope('email');
       provider.addScope('profile');
       
-      const result = await signInWithPopup(auth, provider);
-      
-      // Get or create user profile
-      await createUserProfile(result.user);
+      await signInWithPopup(auth, provider);
       
       if (onSuccess) {
         onSuccess();
