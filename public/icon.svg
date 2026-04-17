@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="flameGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="50%" style="stop-color:#F7C948"/>
+      <stop offset="100%" style="stop-color:#FF6B35"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="96" cy="96" r="88" fill="#1E3A5F"/>
+  
+  <!-- Torch/Flame Icon -->
+  <g filter="url(#glow)">
+    <!-- Flame -->
+    <path d="M96 24 C70 24 56 56 56 80 C56 100 68 112 80 124 L80 148 L112 148 L112 124 C124 112 136 100 136 80 C136 56 122 24 96 24 Z" fill="url(#flameGradient)">
+      <animate attributeName="d" dur="2s" repeatCount="indefinite" values="
+        M96 24 C70 24 56 56 56 80 C56 100 68 112 80 124 L80 148 L112 148 L112 124 C124 112 136 100 136 80 C136 56 122 24 96 24 Z;
+        M96 20 C68 28 52 60 52 82 C52 104 66 114 78 126 L78 148 L114 148 L114 126 C126 114 140 104 140 82 C140 60 124 28 96 20 Z;
+        M96 24 C70 24 56 56 56 80 C56 100 68 112 80 124 L80 148 L112 148 L112 124 C124 112 136 100 136 80 C136 56 122 24 96 24 Z
+      "/>
+    </path>
+    
+    <!-- Inner Flame -->
+    <path d="M96 48 C82 48 74 68 74 84 C74 96 82 104 90 112 L90 136 L102 136 L102 112 C110 104 118 96 118 84 C118 68 110 48 96 48 Z" fill="#FFF5E1" opacity="0.8">
+      <animate attributeName="d" dur="1.5s" repeatCount="indefinite" values="
+        M96 48 C82 48 74 68 74 84 C74 96 82 104 90 112 L90 136 L102 136 L102 112 C110 104 118 96 118 84 C118 68 110 48 96 48 Z;
+        M96 44 C80 52 72 70 72 86 C72 100 82 106 90 114 L90 136 L102 136 L102 114 C110 106 120 100 120 86 C120 70 112 52 96 44 Z;
+        M96 48 C82 48 74 68 74 84 C74 96 82 104 90 112 L90 136 L102 136 L102 112 C110 104 118 96 118 84 C118 68 110 48 96 48 Z
+      "/>
+    </path>
+  </g>
+  
+  <!-- Book/Academic Symbol at bottom -->
+  <path d="M72 158 L72 172 L120 172 L120 158" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <line x1="96" y1="158" x2="96" y2="172" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>
