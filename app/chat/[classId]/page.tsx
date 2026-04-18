@@ -8,7 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { createClient } from '@/lib/firebase';
+import { auth, db } from '@/lib/firebase';
 import { FirebaseChatRoom } from '@/components/chat/firebase-chat-room';
 import { Loader2 } from 'lucide-react';
 
@@ -16,8 +16,6 @@ export default function ChatRoomPage() {
   const router = useRouter();
   const params = useParams();
   const classId = params.classId as string;
-  
-  const { auth, db } = createClient();
   
   const [loading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState<any>(null);
