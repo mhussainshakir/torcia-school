@@ -10,7 +10,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/firebase';
+import { auth, db } from '@/lib/firebase';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -20,7 +20,6 @@ import { format } from 'date-fns';
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { auth, db } = createClient();
   
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);

@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/firebase';
+import { auth, db, database } from '@/lib/firebase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,7 +17,6 @@ import { BookOpen, Search, FileText, Image, Loader2, ExternalLink } from 'lucide
 
 export default function ResourcesPage() {
   const router = useRouter();
-  const { auth, db, database } = createClient();
   
   const [loading, setLoading] = useState(true);
   const [classes, setClasses] = useState<any[]>([]);
