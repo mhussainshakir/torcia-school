@@ -304,7 +304,7 @@ export default function AdminDashboard() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
+              <Badge className="bg-purple-50 text-purple-700 border border-purple-200">
                 Secret Admin Panel
               </Badge>
               <Link href="/dashboard">
