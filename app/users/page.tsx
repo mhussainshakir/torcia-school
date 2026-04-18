@@ -1,45 +1,27 @@
-import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { redirect } from "next/navigation";
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { Users, GraduationCap, Shield, UserPlus, Loader2, Search, Mail } from "lucide-react";
-import { toProfile, getInitials, formatDate } from "@/lib/utils";
-import { UserManagement } from "@/components/dashboard/user-management";
+import { Users } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 /**
  * Users management page for admins.
  * Allows viewing all users and changing their roles.
  */
-export default async function UsersPage() {
-  const supabase = await createServerSupabaseClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/login");
-  }
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
-
-  const userProfile = profile ? toProfile(profile) : null;
-
-  if (userProfile?.role !== "admin") {
-    redirect("/dashboard");
-  }
+export default function UsersPage() {
+  const router = useRouter();
 
   return (
     <div className="container py-8">
-      <UserManagement />
+      <div className="text-center">
+        <Users className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+        <h1 className="text-2xl font-bold">User Management</h1>
+        <p className="text-muted-foreground mt-2">This feature is coming soon</p>
+        <Button onClick={() => router.back()} className="mt-4">
+          Go Back
+        </Button>
+      </div>
     </div>
   );
 }

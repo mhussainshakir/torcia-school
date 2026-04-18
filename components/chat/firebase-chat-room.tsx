@@ -8,11 +8,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { createClient } from '@/lib/firebase';
+import { database } from '@/lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Upload, Send, Image, FileText, Loader2, ExternalLink, X } from 'lucide-react';
+import { Upload, Send, Image as ImageIcon, FileText, Loader2, ExternalLink, X } from 'lucide-react';
 import Image from 'next/image';
 
 interface ChatRoomProps {
@@ -34,8 +34,6 @@ interface Message {
 }
 
 export function FirebaseChatRoom({ classId, className, classDescription, currentUser }: ChatRoomProps) {
-  const { database } = createClient();
-  
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -341,7 +339,7 @@ export function FirebaseChatRoom({ classId, className, classDescription, current
             {isUploading && uploadType === 'image' ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              <Image className="h-4 w-4" />
+              <ImageIcon className="h-4 w-4" />
             )}
           </Button>
 

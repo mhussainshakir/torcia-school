@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { createClient } from "@/lib/firebase";
+import { auth } from "@/lib/firebase";
 
 interface SidebarUser {
   id: string;
@@ -42,7 +42,6 @@ export function Sidebar({ user }: { user: SidebarUser | null }) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { auth } = createClient();
 
   useEffect(() => {
     setMounted(true);

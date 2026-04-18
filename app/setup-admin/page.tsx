@@ -11,9 +11,9 @@
 
 "use client";
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@lib/firebase';
+import { auth, db } from '@/lib/firebase';
 import { doc, getDoc, setDoc, collection, getDocs } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 import { Button } from '@/components/ui/button';
@@ -32,9 +32,6 @@ export default function AdminSetupPage() {
   const [makingAdmin, setMakingAdmin] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  
-  // Firebase instances
-  const { auth, db } = createClient();
 
   useEffect(() => {
     checkSetupStatus();
@@ -431,7 +428,6 @@ export default function AdminSetupPage() {
  */
 function GoogleSignInCard({ onSignIn }: { onSignIn: (user: User) => void }) {
   const [signingIn, setSigningIn] = useState(false);
-  const { auth, db } = createClient();
 
   const handleGoogleSignIn = async () => {
     setSigningIn(true);

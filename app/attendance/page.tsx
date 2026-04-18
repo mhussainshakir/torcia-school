@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/firebase';
+import { auth, db } from '@/lib/firebase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -19,7 +19,6 @@ import { Calendar, Users, CheckCircle, XCircle, Loader2, ChevronLeft, ChevronRig
 
 export default function AttendancePage() {
   const router = useRouter();
-  const { auth, db } = createClient();
   
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);

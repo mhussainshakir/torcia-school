@@ -1,41 +1,28 @@
-import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { redirect } from "next/navigation";
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, Trash2, Plus } from "lucide-react";
-import { toProfile, toClass } from "@/lib/utils";
 import Link from "next/link";
-import { ClassList } from "@/components/dashboard/class-list";
+import { useRouter } from "next/navigation";
 
 /**
  * Classes management page.
  * Admin and teacher view for managing class sections.
  */
-export default async function ClassesPage() {
-  const supabase = await createServerSupabaseClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/login");
-  }
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
-
-  const userProfile = profile ? toProfile(profile) : null;
-
-  if (userProfile?.role !== "admin") {
-    redirect("/dashboard");
-  }
+export default function ClassesPage() {
+  const router = useRouter();
 
   return (
     <div className="container py-8">
-      <ClassList userId={user.id} />
+      <div className="text-center">
+        <BookOpen className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+        <h1 className="text-2xl font-bold">Classes Management</h1>
+        <p className="text-muted-foreground mt-2">This feature is coming soon</p>
+        <Button onClick={() => router.back()} className="mt-4">
+          Go Back
+        </Button>
+      </div>
     </div>
   );
 }

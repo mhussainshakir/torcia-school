@@ -9,7 +9,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/firebase';
+import { auth, db } from '@/lib/firebase';
 import { Sidebar } from '@/components/layout/sidebar';
 import { Loader2 } from 'lucide-react';
 
@@ -29,7 +29,6 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const { auth, db } = createClient();
   
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<SidebarUser | null>(null);

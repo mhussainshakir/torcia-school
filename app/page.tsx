@@ -26,7 +26,7 @@ export default function HomePage() {
           </p>
           
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link href="/login">
+            <Link href="/register">
               <Button size="lg" className="gap-2">
                 Get Started
               </Button>
@@ -101,8 +101,8 @@ export default function HomePage() {
               Join thousands of schools already using Torcia
             </p>
             <div className="mt-8">
-              <Link href="/login">
-                <Button size="lg">Sign In with Google</Button>
+              <Link href="/register">
+                <Button size="lg">Get Started Today</Button>
               </Link>
             </div>
           </div>
