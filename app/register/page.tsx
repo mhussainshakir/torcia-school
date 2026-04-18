@@ -10,15 +10,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/firebase';
-import { GoogleSignInButton } from '@/components/auth/firebase/auth-buttons';
+import { auth } from '@/lib/firebase';
 import { GraduationCap, Mail, Lock, Eye, EyeOff, Loader2, FolderOpen, AlertCircle, CheckCircle, Key, Info } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 export default function RegisterPage() {
   const router = useRouter();
-  const { auth } = createClient();
   
   const [step, setStep] = useState<'google' | 'details'>('google');
   const [user, setUser] = useState<any>(null);
@@ -168,7 +166,7 @@ export default function RegisterPage() {
    */
   const createUserProfile = async (userId: string, data: any) => {
     const { doc, setDoc, serverTimestamp } = await import('firebase/firestore');
-    const { db } = createClient();
+    const { db } = await import('@/lib/firebase');
     
     const userRef = doc(db, 'users', userId);
     await setDoc(userRef, {
